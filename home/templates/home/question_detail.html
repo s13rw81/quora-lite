@@ -1,0 +1,8 @@
+{% extends 'template.html' %}
+{% block content %}
+<h3>New Question Added</h3>
+<div class="section border mb-2 p-1 w-75">
+    <small class="text-muted">#{{ question.id }}. by : {{ question.user.username }} {{ question.date }}</small>
+    <p class="border-top pt-1">{{ question.question }} <a href="{% url 'add-answer' question.id %}" class="text-muted">answer this question</a></p>
+</div>
+{% endblock content %}

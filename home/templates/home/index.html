@@ -1,0 +1,12 @@
+{% extends 'template.html' %}
+{% block content %}
+{% for question in object_list reversed %}
+{% if question.status == True %}
+<div class="section border mb-2 p-1 w-75">
+    <small class="text-muted">#{{ question.id }}. by : {{ question.user.username }} {{ question.date }}</small>
+    <p class="border-top pt-1">{{ question.question }} <a href="{% url 'add-answer' question.id %}"
+            class="text-muted">answer this question</a></p>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock content %}
