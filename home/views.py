@@ -1,7 +1,7 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from home.models import Question, Answer
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from home.models import Question, Answer
 
 
 # class based view for the homepage, lists all the questions in the DB

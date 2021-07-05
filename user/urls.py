@@ -1,19 +1,10 @@
+from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from user.views import login, profile, UpdateProfileView
 from user.views import register
 
-# class based view
-from django.contrib.auth import views as auth_views
-
 
 urlpatterns = [
-    path("register/", register, name="register"),
-    path("profile/", profile, name="profile"),
-    path(
-        "profile/update/<pk>/",
-        UpdateProfileView.as_view(template_name="user/update_profile.html"),
-        name="update_profile",
-    ),
     path(
         "login/",
         auth_views.LoginView.as_view(template_name="user/login.html"),
@@ -30,11 +21,11 @@ urlpatterns = [
         name="password-reset",
     ),
     path(
-        "password-reset/done/",
-        auth_views.PasswordResetDoneView.as_view(
-            template_name="user/password_reset_done.html"
+        "password-reset/complete/",
+        auth_views.PasswordResetCompleteView.as_view(
+            template_name="user/password_reset_complete.html"
         ),
-        name="password_reset_done",
+        name="password_reset_complete",
     ),
     path(
         "password-reset/confirm/<uidb64>/<token>/",
@@ -44,10 +35,17 @@ urlpatterns = [
         name="password_reset_confirm",
     ),
     path(
-        "password-reset/complete/",
-        auth_views.PasswordResetCompleteView.as_view(
-            template_name="user/password_reset_complete.html"
+        "password-reset/done/",
+        auth_views.PasswordResetDoneView.as_view(
+            template_name="user/password_reset_done.html"
         ),
-        name="password_reset_complete",
+        name="password_reset_done",
     ),
+    path("profile/", profile, name="profile"),
+    path(
+        "profile/update/<pk>/",
+        UpdateProfileView.as_view(template_name="user/update_profile.html"),
+        name="update_profile",
+    ),
+    path("register/", register, name="register"),
 ]

@@ -1,8 +1,7 @@
-from django.shortcuts import render, reverse
-from django.views.generic import ListView, CreateView, DetailView
 from blog.models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+from django.shortcuts import render, reverse
+from django.views.generic import ListView, CreateView, DetailView
 
 class PostListView(ListView):
     model = Post

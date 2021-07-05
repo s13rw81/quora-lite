@@ -21,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-sd=gp7+eha5azilt*2148kk@9mpaz(5evpm^@%0*_rvf+4s3as"
+# SECRET_KEY = "django-insecure-sd=gp7+eha5azilt*2148kk@9mpaz(5evpm^@%0*_rvf+4s3as"
+SECRET_KEY = "36ad728aa86d2c6e78f7aa7e75a8d94c7f546556b922de376cdc818acd5191839d86daf6a41bceccc707572bfd0031468d9d6d65f01e8be19012b1a6000531c7"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["0.0.0.0", "quora-lite.eu-gb.mybluemix.net"]
+ALLOWED_HOSTS = ["0.0.0.0", "quora-lite.eu-gb.mybluemix.net", "localhost"]
 
 
 # Application definition
@@ -62,7 +63,8 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(BASE_DIR, "templates"),
+            BASE_DIR / "templates",
+            # os.path.join(BASE_DIR, "templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -137,7 +139,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "/var/www/static/",
+    # "/var/www/static/",
 ]
 # crispy template
 CRISPY_TEMPLATE_PACK = "bootstrap4"
@@ -158,14 +160,20 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = BASE_DIR / "media"  # os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 
 STATIC_URL = "/static/"
 if DEBUG:
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "static"),
+        BASE_DIR / "static",
+        # os.path.join(BASE_DIR, "static"),
     ]
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    STATIC_ROOT = BASE_DIR / "static"  # os.path.join(BASE_DIR, "static")
+
+
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
