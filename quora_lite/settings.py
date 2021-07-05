@@ -137,10 +137,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # added static files firectory
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    # "/var/www/static/",
-]
+STATICFILES_DIRS = []
 # crispy template
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
@@ -151,9 +148,8 @@ LOGIN_REDIRECT_URL = "home"
 LOGIN_URL = "login"
 
 # email settings
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smpt.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
@@ -162,13 +158,6 @@ EMAIL_HOST_PASSWORD = ""
 
 MEDIA_ROOT = BASE_DIR / "media"  # os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
-
-
-STATIC_URL = "/static/"
-if DEBUG:
-    STATICFILES_DIRS = []
-else:
-    STATIC_ROOT = BASE_DIR / "static"
 
 
 SECURE_SSL_REDIRECT = True
