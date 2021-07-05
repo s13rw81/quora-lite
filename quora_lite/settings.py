@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-sd=gp7+eha5azilt*2148kk@9mpaz(5evpm^@%0*_rvf+4s3as
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [0.0.0.0, 'quora-lite.eu-gb.mybluemix.net']
+ALLOWED_HOSTS = ["0.0.0.0", "quora-lite.eu-gb.mybluemix.net"]
 
 
 # Application definition
