@@ -1,5 +1,5 @@
 # Quora Lite
---------------
+
 As the name suggests, Quora Lite is a minified version of [Quora.com](https://www.quora.com).
 
 It allows users to create an account, post a question, add answers to pending questions, write a blog post, read blog posts made by others. Posts are text based. Functionality to allow a better editor for creating posts will be added soon.
