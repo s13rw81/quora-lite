@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT quora-lite.wsgi:application
+web: gunicorn --bind 0.0.0.0:$PORT quora_lite.wsgi:application
