@@ -1,8 +1,17 @@
 {% extends 'template.html' %}
 {% block content %}
 <h3>New Question Added</h3>
-<div class="section border mb-2 p-1 w-75">
+<div class="section border mb-2 p-1">
     <small class="text-muted">#{{ question.id }}. by : {{ question.user.username }} {{ question.date }}</small>
-    <p class="border-top pt-1">{{ question.question }} <a href="{% url 'add-answer' question.id %}" class="text-muted">answer this question</a></p>
+    <p class="border-top pt-1">{{ question.question }} <a href="{% url 'add-answer' question.id %}"
+            class="text-muted">answer this question</a></p>
 </div>
+<p>Answers :</p>
+{% for answer in question.answer_set.all %}
+<div class="section border mb-2 p-1">
+    <small class="text-muted">Answered by : {{ answer.user }} on {{ answer.date }}</small>
+    <p class="border-top pt-1">{{ answer.answer }}</p>
+</div>
+{% endfor %}
+
 {% endblock content %}

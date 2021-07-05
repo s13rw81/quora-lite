@@ -1,13 +1,17 @@
 {% extends 'template.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<form action="" method="POST" class="w-75">
+
+<form action="" method="POST">
     {% csrf_token %}
     <fieldset>
         <legend>Add New Answer</legend>
-        <p class="border-bottom pb-2">{{ object.question }}</p>
+
+        <p class="pb-2">Q : {{ question.question }}</p>
+
         {{ form|crispy }}
     </fieldset>
     <button type="submit" class="btn btn-outline-info mb-2">Submit</button>
 </form>
+
 {% endblock content %}

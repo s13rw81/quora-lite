@@ -2,13 +2,13 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <form action="" method="POST" class="w-75">
-{% csrf_token %}
-<fieldset>
-    <legend>Update Profile</legend>
-    {{ form|crispy }}
-</fieldset>
-<div class=" border-bottom">
-<button type="submit" class="btn btn-outline-info mb-2">Submit</button>
-<button type="submit" class="btn btn-outline-secondary mb-2">Discard Changes</button>
+    {% csrf_token %}
+    <fieldset>
+        <legend>Update Profile</legend>
+        {{ form|crispy }}
+    </fieldset>
+    <div class=" border-bottom">
+        <button type="submit" class="btn btn-outline-info mb-2">Submit</button>
+        <button type="submit" class="btn btn-outline-secondary mb-2">Discard Changes</button>
 </form>
 {% endblock content %}

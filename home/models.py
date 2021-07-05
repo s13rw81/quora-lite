@@ -4,7 +4,9 @@ from django.urls import reverse
 
 
 class Question(models.Model):
-    question = models.CharField(max_length=140, help_text="Enter your question")
+    question = models.CharField(
+        max_length=140, help_text="Enter your question", unique=True
+    )
     details = models.TextField(
         help_text="provide any additional details", null=True, blank=True
     )
@@ -20,10 +22,10 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
-    answer = models.TextField(help_text="add yur answer to the question")
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    answer = models.TextField(help_text="add your answer to the question", unique=True)
     date = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default=2)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     status = models.BooleanField(default=False)
 
     def __str__(self):

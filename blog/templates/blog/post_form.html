@@ -1,0 +1,16 @@
+{% extends 'template.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<form action="" method="POST" class="w-75">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Create a New Post</legend>
+        {{ form|crispy }}
+    </fieldset>
+    <a href="{% url 'blog-home' %}">Cancel</a>
+    <button class="btn btn-outline-info" type="submit">submit</button>
+</form>
+
+{% endblock content %}

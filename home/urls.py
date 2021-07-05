@@ -5,7 +5,7 @@ from home.views import UpdateQuestionView, CreateAnswerView, AnswerDetailsView
 urlpatterns = [
     path("", QuestionsView.as_view(), name="home"),
     path("answer/<int:pk>/detail/", AnswerDetailsView.as_view(), name="answer-detail"),
-    path("answer/<int:qid>/", CreateAnswerView.as_view(), name="add-answer"),
+    path("answer/<int:qid>/new/", CreateAnswerView.as_view(), name="add-answer"),
     path("question/<int:pk>/", QuestionDetailsView.as_view(), name="question-detail"),
     path(
         "question/<int:pk>/update/",

@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404
 
 
-# class based view for the homepage
+# class based view for the homepage, lists all the questions in the DB
 class QuestionsView(ListView):
     model = Question
     template_name = "home/index.html"
@@ -13,21 +13,23 @@ class QuestionsView(ListView):
     # ordering = ['-date']
 
 
-# view a question
+# view a question and the answers to the question
 class QuestionDetailsView(DetailView):
     model = Question
 
 
-# view a question
+# view an answer
 class AnswerDetailsView(DetailView):
     model = Answer
 
 
+# add a question
 class CreateQuestionView(LoginRequiredMixin, CreateView):
     model = Question
     fields = ["question", "details"]
 
 
+# update question details
 class UpdateQuestionView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Question
     fields = ["question", "details"]
@@ -39,13 +41,17 @@ class UpdateQuestionView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return False
 
 
+# add and answer to a question
 class CreateAnswerView(LoginRequiredMixin, CreateView):
     model = Answer
     fields = ["answer"]
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["question"] = Question.objects.get(id=self.kwargs["qid"])
+        return context
+
     def form_valid(self, form):
-        print("\n\n")
-        print("question asked is ", self.kwargs["qid"])
-        print("\n\n")
-        form.instance.question == Question.objects.get(id=self.kwargs["qid"])
+        form.instance.user = self.request.user
+        form.instance.question = Question.objects.get(id=self.kwargs["qid"])
         return super().form_valid(form)

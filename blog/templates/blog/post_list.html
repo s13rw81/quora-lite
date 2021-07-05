@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+{% block content %}
+
+{% if object_list %}
+{% for post in object_list reversed %}
+<div class="section border mb-2 p-1">
+    <p class="border-bottom font-weight-bold mb-2">{{ post.id }}. {{ post.title }}
+        <small class="text-muted p-3">by : {{ post.user.username }} {{ post.date }}</small>
+    </p>
+    <p>{{ post.content }}</p>
+</div>
+
+{% endfor %}
+{% else %}
+<p>No Posts so far</p>
+{% endif %}
+{% endblock content %}

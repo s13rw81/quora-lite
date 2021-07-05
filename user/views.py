@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect, reverse
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from user.forms import Register
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import UpdateView
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect, reverse
+from django.views.generic import UpdateView
+from user.forms import Register
 
 
 def register(request):

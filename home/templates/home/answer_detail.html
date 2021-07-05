@@ -1,0 +1,9 @@
+{% extends 'template.html' %}
+{% block content %}
+<h3>New Answer Added</h3>
+<div class="section border mb-2 p-1 w-75">
+    <small class="text-muted">#{{ answer.id }}. by : {{ answer.user.username }} {{ answer.date }}</small>
+    <p class="border-top pt-1">{{ answer.question.question }}</p>
+    <p class="border-top pt-1">{{ answer.answer }}</p>
+</div>
+{% endblock content %}

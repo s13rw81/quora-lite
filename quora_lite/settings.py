@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     # user apps
     "home.apps.HomeConfig",
     "user.apps.UserConfig",
+    "blog.apps.BlogConfig",
     # default apps
     "django.contrib.admin",
     "django.contrib.auth",
@@ -154,8 +155,8 @@ LOGIN_URL = "login"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "wildr.slimshady@gmail.com"
-EMAIL_HOST_PASSWORD = "xpahutpsuxfolioj"
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"

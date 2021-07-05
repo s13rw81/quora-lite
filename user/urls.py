@@ -1,6 +1,6 @@
 from django.urls import path, include
-from user.views import register
 from user.views import login, profile, UpdateProfileView
+from user.views import register
 
 # class based view
 from django.contrib.auth import views as auth_views
