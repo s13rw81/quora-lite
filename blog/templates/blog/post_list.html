@@ -1,6 +1,10 @@
 {% extends 'template.html' %}
 {% block content %}
 
+<div class="d-flex justify-content-between">
+    <h3 class="">Recent Posts</h3>
+    <a class="btn btn-outline-info mt-1 mb-1" href="{% url 'blog-create' %}">New Post</a>
+</div>
 {% if object_list %}
 {% for post in object_list reversed %}
 <div class="section border mb-2 p-1">
