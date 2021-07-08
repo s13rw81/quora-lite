@@ -1,0 +1,6 @@
+---
+applications:
+ - name: quora-lite
+   random-route: true
+   memory: 64M
+   uses: IBM/cloudfoundry-deploy@v2.0
