@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-ENV = os.getenv('ENVIRONMENT', 'DEV')
+ENV = os.environ.get('ENVIRONMENT', 'DEV')
 # ["localhost", "0.0.0.0", "quora-lite.eu-gb.mybluemix.net", "127.0.0.1"]
 ALLOWED_HOSTS = [] if ENV == 'DEV' else ["s13rw81.pythonanywhere.com", "0.0.0.0"]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
