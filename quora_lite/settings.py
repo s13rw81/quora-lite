@@ -2,12 +2,13 @@ from pathlib import Path
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# ALLOWED_HOSTS = ["localhost", "0.0.0.0", "quora-lite.eu-gb.mybluemix.net", "127.0.0.1"]
+ENV = os.getenv('ENVIRONMENT', 'DEV')
+# ["localhost", "0.0.0.0", "quora-lite.eu-gb.mybluemix.net", "127.0.0.1"]
+ALLOWED_HOSTS = [] if ENV == 'DEV' else ['s13rw81.pythonanywhere.com']
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
-CSRF_COOKIE_SECURE = False
-DEBUG = True
+CSRF_COOKIE_SECURE = False if ENV == 'DEV' else True
+DEBUG = True if ENV == 'DEV' else False
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
@@ -21,8 +22,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 ROOT_URLCONF = "quora_lite.urls"
 SECRET_KEY = os.environ.get("SECRET_KEY", "TABLE")
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False if ENV == 'DEV' else True
+SESSION_COOKIE_SECURE = False if ENV == 'DEV' else True
 STATICFILES_DIRS = []
 STATIC_URL = "/static/"
 TIME_ZONE = "Asia/Kolkata"
