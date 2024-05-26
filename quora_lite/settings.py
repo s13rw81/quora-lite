@@ -4,7 +4,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV = os.getenv('ENVIRONMENT', 'DEV')
 # ["localhost", "0.0.0.0", "quora-lite.eu-gb.mybluemix.net", "127.0.0.1"]
-ALLOWED_HOSTS = [] if ENV == 'DEV' else ['s13rw81.pythonanywhere.com', '0.0.0.0']
+ALLOWED_HOSTS = [] if ENV == 'DEV' else ["s13rw81.pythonanywhere.com", "0.0.0.0"]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 CSRF_COOKIE_SECURE = False if ENV == 'DEV' else True
