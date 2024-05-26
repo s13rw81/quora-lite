@@ -3,14 +3,15 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ALLOWED_HOSTS = ["0.0.0.0", "quora-lite.eu-gb.mybluemix.net"]
-CRISPY_TEMPLATE_PACK = "bootstrap4"
-CSRF_COOKIE_SECURE = True
-DEBUG = False
+# ALLOWED_HOSTS = ["localhost", "0.0.0.0", "quora-lite.eu-gb.mybluemix.net", "127.0.0.1"]
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+CSRF_COOKIE_SECURE = False
+DEBUG = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
-EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 LANGUAGE_CODE = "en-in"
@@ -19,9 +20,9 @@ LOGIN_URL = "login"
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 ROOT_URLCONF = "quora_lite.urls"
-SECRET_KEY = os.environ["SECRET_KEY"]
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
+SECRET_KEY = os.environ.get("SECRET_KEY", "TABLE")
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
 STATICFILES_DIRS = []
 STATIC_URL = "/static/"
 TIME_ZONE = "Asia/Kolkata"
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.staticfiles",
     "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
