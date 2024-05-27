@@ -1,6 +1,6 @@
 from django.contrib.auth import views as auth_views
-from django.urls import path, include
-from user.views import login, profile, UpdateProfileView
+from django.urls import path
+from user.views import profile, UpdateProfileView
 from user.views import register
 
 
@@ -12,7 +12,7 @@ urlpatterns = [
     ),
     path(
         "logout/",
-        auth_views.LogoutView.as_view(template_name="user/logout.html"),
+        auth_views.LogoutView.as_view(template_name="user/logout.html", ),
         name="logout",
     ),
     path(

@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-class Profile(models.Model):
 
+class Profile(models.Model):
     image = models.ImageField(default="default.jpg", upload_to="profileimages")
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 

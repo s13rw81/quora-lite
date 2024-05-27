@@ -22,9 +22,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("", include("home.urls"), name="home"),
-    path("admin/", admin.site.urls),
     path("blog/", include("blog.urls"), name="blog"),
     path("user/", include("user.urls"), name="user"),
+    path("admin/", admin.site.urls),
 ]
 
 if settings.DEBUG:
