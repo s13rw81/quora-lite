@@ -1,6 +1,12 @@
 {% extends 'template.html' %}
 {% block content %}
-<h3>New Question Added</h3>
+<div class="d-flex justify-content-between">
+    <h3>New Question Added</h3>
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-outline-info mx-1" href="{% url 'question-update' object.id %}">Edit Post</a>
+        <a class="btn btn-outline-danger mx-1" href="{% url 'question-delete' object.id %}">Delete Post</a>
+    </div>
+</div>
 <div class="section border mb-2 p-1">
     <small class="text-muted">#{{ question.id }}. by : {{ question.user.username }} {{ question.date }}</small>
     <p class="border-top pt-1">{{ question.question }} <a href="{% url 'add-answer' question.id %}"

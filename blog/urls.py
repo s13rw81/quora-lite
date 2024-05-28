@@ -1,10 +1,10 @@
 from blog import views
-from django.urls import path, include
+from django.urls import path
 
 urlpatterns = [
-    # path("delete/", views.home, name="blog-delete"),
-    # path("update/", views.home, name="blog-update"),
     path("", views.PostListView.as_view(), name="blog-home"),
-    path("<int:pk>/", views.PostDetailView.as_view(), name="blog-detail"),
     path("new/", views.PostCreateView.as_view(), name="blog-create"),
+    path("<int:pk>/", views.PostDetailView.as_view(), name="blog-detail"),
+    path("<int:pk>/update/", views.PostUpdateView.as_view(), name="blog-update"),
+    path("<int:pk>/delete/", views.PostDeleteView.as_view(), name="blog-delete"),
 ]

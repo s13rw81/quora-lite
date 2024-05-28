@@ -7,7 +7,8 @@
 {% endif %}
 
 <div class="d-flex justify-content-between mb-2">
-    <h3>New Blog Post</h3>
+    <h3>Edit Blog Post</h3>
+    <a class="btn btn-danger mx-1" href="{% url 'blog-delete' object.id %}">Delete Post</a>
 </div>
 <form action="" method="POST" class="w-75">
     {% csrf_token %}

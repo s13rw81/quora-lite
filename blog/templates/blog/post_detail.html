@@ -1,13 +1,22 @@
 {% extends 'template.html' %}
-
 {% block content %}
-<h1>Blog Detail</h1>
 {% if object %}
-
-<h3>{{ object.title }}</h3>
-<p>{{ object.content }}</p>
-
+<div class="d-flex justify-content-between mb-2">
+    <h3>New Blog Post</h3>
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-outline-info mx-1" href="{% url 'blog-update' object.id %}">Edit Post</a>
+        <a class="btn btn-outline-danger mx-1" href="{% url 'blog-delete' object.id %}">Delete Post</a>
+    </div>
+</div>
+<div class="section border p-1">
+    <div class="">
+    <p class="border-bottom pt-1 d-inline">#{{ object.id }}. {{ object.title }}</p>
+    <small class="text-muted">by : {{ object.user.username }} {{ object.date }}</small>
+    </div>
+    <p class="border-top pt-1">{{ object.content }}</p>
+</div>
 {% else %}
-<p>No Posts so far</p>
+<h3>Blog Detail</h3>
+<p class="border-top pt-1">No Posts so far</p>
 {% endif %}
 {% endblock content %}

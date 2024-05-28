@@ -2,7 +2,7 @@
 {% block content %}
 <div class="d-flex justify-content-between mb-2">
     <h3 class="">Recent Questions</h3>
-    <a class="btn btn-outline-info mx-2" href="{% url 'new-question' %}">New Question</a>
+    <a class="btn btn-outline-info mx-1" href="{% url 'new-question' %}">New Question</a>
 </div>
 {% for question in object_list reversed %}
 
@@ -10,8 +10,7 @@
     <small class="text-muted">#{{ question.id }}. by : {{ question.user.username }} {{ question.date }}</small>
     <p class="border-top pt-1">
         <a href="{% url 'question-detail' question.id %}">{{ question.question }}</a>
-        ({{ question.answer_set.count }} answers). <a href="{% url 'add-answer' question.id %}" class="text-muted">Add
-            your answer.</a>
+        ({{ question.answer_set.count }} answers). <a href="{% url 'add-answer' question.id %}" class="text-muted">Add your answer.</a>
     </p>
 
 </div>

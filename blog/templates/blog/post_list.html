@@ -1,14 +1,14 @@
 {% extends 'template.html' %}
 {% block content %}
 
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between mb-2">
     <h3 class="">Recent Posts</h3>
-    <a class="btn btn-outline-info mt-1 mb-1" href="{% url 'blog-create' %}">New Post</a>
+    <a class="btn btn-outline-info mx-1" href="{% url 'blog-create' %}">New Post</a>
 </div>
 {% if object_list %}
 {% for post in object_list reversed %}
 <div class="section border mb-2 p-1">
-    <p class="border-bottom font-weight-bold mb-2">{{ post.id }}. {{ post.title }}
+    <p class="border-bottom font-weight-bold mb-2">{{ post.id }}. <a href="{% url 'blog-detail' post.id %}">{{ post.title }}</a>
         <small class="text-muted p-3">by : {{ post.user.username }} {{ post.date }}</small>
     </p>
     <p>{{ post.content }}</p>
