@@ -24,7 +24,11 @@
           <a class="text-decoration-none" href="{% url 'profile' %}" class="nav-link">Profile</a>
         </li>
         <li class="nav-item m-2 p-2">
-          <a class="text-decoration-none" href="{% url 'logout' %}" class="nav-link">Logout</a>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="nav-link text-decoration-none p-0" type="submit">logout</button>
+          </form>
+          <!-- <a class="text-decoration-none" href="{% url 'logout' %}" class="nav-link">Logout</a> -->
         </li>
         {% else %}
         <li class="nav-item m-2 p-2">
@@ -37,8 +41,8 @@
       </ul>
     </nav>
 
-    <div class="d-flex justify-content-start">
-      <div class="col-8 pl-0">
+    <div class="d-flex justify-content-end">
+      <div class="col-12">
         <div>
           {% if messages %}
           {% for message in messages %}
@@ -49,15 +53,6 @@
           {% endif %}
         </div>
         {% block content %}{% endblock content %}
-      </div>
-      <div class="col-4 border">
-        <p class="border-bottom text-info mx-2">TODO List</p>
-        <ol>
-          <li class="list-item"><s>Blog App</s></li>
-          <li class="list-item"><s>QnA App</s></li>
-          <li class="list-item">Realtime Chat</li>
-          <li class="list-item">*Topic* in a Month</li>
-        </ol>
       </div>
     </div>
   </div>

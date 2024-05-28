@@ -12,7 +12,9 @@ class Question(models.Model):
         max_length=140, help_text="Enter your question", unique=True
     )
     status = models.BooleanField(default=False)
-    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default=2)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # TODO : add ENUMs to specify status of question [OPEN, DELETED, CLOSED]
 
     def __str__(self):
         return f"Q: {self.question} by {self.user.username}"

@@ -28,6 +28,9 @@ class CreateQuestionView(LoginRequiredMixin, CreateView):
     model = Question
     fields = ["question", "details"]
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 # update question details
 class UpdateQuestionView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
