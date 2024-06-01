@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from user.models import Profile
 
 
 class Register(UserCreationForm):
@@ -15,6 +16,8 @@ class Register(UserCreationForm):
     )
     email = forms.EmailField(label="Enter your Email", required=True)
 
+    image = forms.ImageField(label="Upload Display Picture", required=False)
+
     class Meta:
         model = User
         fields = [
@@ -25,4 +28,15 @@ class Register(UserCreationForm):
             "username",
             "password1",
             "password2",
+            "image"
         ]
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        if commit:
+            user.save()
+            if self.cleaned_data.get('image'):
+                profile = Profile.objects.create(user=user, image=self.cleaned_data.get('image'))
+                profile.save()
+        return user
+
