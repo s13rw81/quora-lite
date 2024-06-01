@@ -1,6 +1,12 @@
 {% extends 'template.html' %}
 {% block content %}
-<h1>Profile Page</h1>
+<div class="d-flex justify-content-between mb-2">
+    <h3>Profile Page</h3>
+    <div class="d-flex justify-content-end mb-2">
+    <a class="btn btn-outline-info mx-1" href="{% url 'update_profile' user.id %}">Edit Profile</a>
+    <a class="btn btn-outline-danger mx-1" href="{% url 'delete_profile' user.id %}">Delete Profile</a>
+    </div>
+</div>
 <div class="d-flex border w-75 p-2">
     <div class="col-6">
         <img src="{{ user.profile.image.url }}" alt="{{ user.first_name}} {{ user.last_name}}" height="200px"
