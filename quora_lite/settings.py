@@ -3,10 +3,8 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV = os.environ.get('ENVIRONMENT', 'PROD')
-print(f'environment : {ENV}')
-# ["localhost", "0.0.0.0", "quora-lite.eu-gb.mybluemix.net", "127.0.0.1"]
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+print(f'environment : {ENV} | static root : {STATIC_ROOT}')
 ALLOWED_HOSTS = ['localhost'] if ENV == 'DEV' else ["s13rw81.pythonanywhere.com", "quora.pythonanywhere.com"]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -27,7 +25,7 @@ ROOT_URLCONF = "quora_lite.urls"
 SECRET_KEY = os.environ.get("SECRET_KEY", "TABLE")
 SECURE_SSL_REDIRECT = False if ENV == 'DEV' else True
 SESSION_COOKIE_SECURE = False if ENV == 'DEV' else True
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
 
 STATIC_URL = "/static/"
 TIME_ZONE = "Asia/Kolkata"
