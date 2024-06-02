@@ -3,8 +3,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV = os.environ.get('ENVIRONMENT', 'PROD')
-# ["localhost", "0.0.0.0", "quora-lite.eu-gb.mybluemix.net", "127.0.0.1"]
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 print(f'environment : {ENV} | static root : {STATIC_ROOT}')
 ALLOWED_HOSTS = ['localhost'] if ENV == 'DEV' else ["s13rw81.pythonanywhere.com", "quora.pythonanywhere.com"]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
