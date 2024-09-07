@@ -10,7 +10,7 @@ from user.forms import Register
 
 def register(request):
     if request.method == "POST":
-        form = Register(request.POST)
+        form = Register(request.POST, request.FILES)
         if form.is_valid():
             username = form.cleaned_data.get("username")
             form.save()
@@ -30,7 +30,7 @@ def register(request):
 
 
 @login_required
-def profile(request, pk: int = None):
+def profile(request):
     print("\n\n")
     print(request.user.first_name)
     print(request.user.last_name)
