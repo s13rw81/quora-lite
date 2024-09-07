@@ -15,7 +15,9 @@ def validate_image(file):
 
 
 class Profile(models.Model):
-    image = models.ImageField(default="default.jpg", upload_to="profileimages", validators=[validate_image])
+    # image = models.ImageField(default="default.jpg", upload_to="profileimages", validators=[validate_image])
+    image = models.ImageField(upload_to='profileimages/', blank=True, null=True)
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):

@@ -25,7 +25,7 @@ urlpatterns = [
     path("blog/", include("blog.urls"), name="blog"),
     path("user/", include("user.urls"), name="user"),
     path("admin/", admin.site.urls),
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

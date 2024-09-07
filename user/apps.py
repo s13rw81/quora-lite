@@ -7,4 +7,4 @@ class UserConfig(AppConfig):
 
     def ready(self):
         # Import your signal handlers here
-        import user.signals  # replace with your app name
+        pass  # replace with your app name

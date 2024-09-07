@@ -25,7 +25,7 @@ ROOT_URLCONF = "quora_lite.urls"
 SECRET_KEY = os.environ.get("SECRET_KEY", "TABLE")
 SECURE_SSL_REDIRECT = False if ENV == 'DEV' else True
 SESSION_COOKIE_SECURE = False if ENV == 'DEV' else True
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 STATIC_URL = "/static/"
 TIME_ZONE = "Asia/Kolkata"
